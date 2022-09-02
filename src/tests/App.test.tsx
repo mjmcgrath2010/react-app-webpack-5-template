@@ -6,8 +6,8 @@ import App from '../App'
 
 describe('<App/>', () => {
   it('Renders the correct copy', () => {
-    const { getByText } = renderAppComponent(<App />)
+    const view = renderAppComponent(<App />)
 
-    expect(getByText(/Home Page/)).toBeInTheDocument()
+    expect(view).toMatchSnapshot()
   })
 })

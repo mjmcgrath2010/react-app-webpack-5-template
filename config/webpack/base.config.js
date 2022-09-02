@@ -47,6 +47,17 @@ module.exports = {
         ],
       },
       {
+        test: /\.svg$/i,
+        type: 'asset',
+        resourceQuery: /url/, // *.svg?url
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+        use: [{ loader: '@svgr/webpack', options: { typescript: true } }],
+      },
+      {
         test: /\.css$/i,
         exclude: /\.lazy\.css$/i,
         use: ['style-loader', 'css-loader'],
