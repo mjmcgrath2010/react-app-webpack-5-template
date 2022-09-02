@@ -12,7 +12,6 @@ module.exports = {
 
           // or disable plugins
           removeDoctype: false,
-          removeUselessStrokeAndFill: true,
         },
       },
     },
