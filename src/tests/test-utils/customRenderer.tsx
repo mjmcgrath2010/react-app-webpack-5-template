@@ -1,4 +1,5 @@
 import React, { FC, ReactElement } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 import { render, RenderOptions, RenderResult } from '@testing-library/react'
 
@@ -13,7 +14,7 @@ import { render, RenderOptions, RenderResult } from '@testing-library/react'
  */
 
 const ActivityWebAppWrapper: FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <>{children}</>
+  return <BrowserRouter>{children}</BrowserRouter>
 }
 /**
  *

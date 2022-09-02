@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "webpack serve --open --hot --config ./config/webpack/index.js",
+    "dev": "webpack serve --config ./config/webpack/index.js",
     "build": "NODE_ENV=production && webpack --config ./config/webpack/index.js",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
@@ -58,6 +58,7 @@
     "terser-webpack-plugin": "^5.3.6",
     "ts-loader": "^9.3.1",
     "tsc-watch": "^5.0.3",
+    "tsconfig-paths-webpack-plugin": "^4.0.0",
     "typescript": "^4.8.2",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
@@ -84,6 +85,10 @@
     ],
     "moduleNameMapper": {
       "^@test-utils$": "<rootDir>/src/tests/test-utils/index.ts",
+      "^components/(.*)$": "<rootDir>/src/components/$1",
+      "^hooks/(.*)$": "<rootDir>/src/hooks/$1",
+      "^layouts/(.*)$": "<rootDir>/src/layouts/$1",
+      "^pages/(.*)$": "<rootDir>/src/pages/$1",
       "^.+\\.(css|less|scss)$": "babel-jest",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/__mocks__/file-mock.ts"
     },

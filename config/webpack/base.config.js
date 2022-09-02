@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 /*eslint-disable @typescript-eslint/no-var-requires */
-
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(process.cwd(), 'src/index.tsx'),
@@ -20,7 +20,11 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: [
+          {
+            loader: 'ts-loader',
+          },
+        ],
         exclude: /node_modules/,
       },
       {
@@ -51,6 +55,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    plugins: [
+      new TsconfigPathsPlugin({ configFile: path.resolve(process.cwd(), 'tsconfig.json') }),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({

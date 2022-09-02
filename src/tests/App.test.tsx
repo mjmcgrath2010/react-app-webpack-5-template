@@ -8,6 +8,6 @@ describe('<App/>', () => {
   it('Renders the correct copy', () => {
     const { getByText } = renderAppComponent(<App />)
 
-    expect(getByText(/App/)).toBeInTheDocument()
+    expect(getByText(/Home Page/)).toBeInTheDocument()
   })
 })
