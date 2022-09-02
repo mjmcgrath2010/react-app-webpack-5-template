@@ -1,9 +1,7 @@
-import React from "react";
+import React from 'react'
 
-type Props = {};
+function App() {
+  return <div>App</div>
+}
 
-const App = (props: Props) => {
-  return <div>App</div>;
-};
-
-export default App;
+export default App
