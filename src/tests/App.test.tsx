@@ -1,6 +1,8 @@
 import React from 'react'
+
+import { renderAppComponent } from '@test-utils'
+
 import App from '../App'
-import { renderAppComponent } from './test-utils'
 
 describe('<App/>', () => {
   it('Renders the correct copy', () => {
