@@ -22,12 +22,17 @@
     "@babel/core": "^7.18.13",
     "@babel/preset-env": "^7.18.10",
     "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/react-hooks": "^8.0.1",
     "@types/jest": "^29.0.0",
     "@types/node": "^18.7.14",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
+    "babel-jest": "^29.0.1",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "eslint": "^7.32.0 || ^8.2.0",
@@ -38,10 +43,13 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.1",
     "jest": "^29.0.1",
+    "jest-environment-jsdom": "^29.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "sass": "^1.54.8",
     "sass-loader": "^13.0.2",
@@ -53,5 +61,46 @@
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.1"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "jest": {
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$"
+    ],
+    "resetMocks": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/tests/",
+      "<rootDir>/dist/",
+      "<rootDir>/public/",
+      "<rootDir>/config/",
+      "/node_modules/"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{js,jsx,ts,tsx}",
+      "!**/node_modules/**"
+    ],
+    "moduleNameMapper": {
+      "^@test-utils$": "<rootDir>/src/tests/test-utils/index.ts",
+      "^.+\\.(css|less|scss)$": "babel-jest",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/__mocks__/file-mock.ts"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/tests/setupJest.ts"
+    ],
+    "testEnvironment": "jsdom"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'"
+    ],
+    "{package,yarn}.{json,lock}": [
+      "npx yalc check"
+    ]
+  },
+  "volta": {
+    "node": "16.17.0",
+    "yarn": "1.22.19"
   }
 }
