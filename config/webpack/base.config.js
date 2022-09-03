@@ -3,9 +3,10 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+/* ======= setup-imports ================ */
 
 module.exports = {
-  entry: path.resolve(process.cwd(), 'src/index.tsx'),
+  entry: path.resolve(process.cwd(), 'src/index.ts'),
   output: {
     clean: true,
     path: path.resolve(process.cwd(), 'dist/'),
@@ -74,5 +75,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(process.cwd(), 'public/index.html'),
     }),
+
+    /* ======= setup-plugins ================ */
   ],
 }

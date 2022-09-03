@@ -16,4 +16,5 @@ const envConfigs = {
 module.exports = {
   ...baseConfig,
   ...envConfigs[env],
+  plugins: [...baseConfig.plugins, ...envConfigs[env].plugins],
 }
