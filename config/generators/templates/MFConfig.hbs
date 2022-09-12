@@ -1,31 +1,9 @@
 
-/* eslint-disable no-undef */
-/*eslint-disable @typescript-eslint/no-var-requires */
-const deps = require("../../package.json").dependencies
-
-module.exports = {
-  name: "{{mfName}}",
-  filename: "remoteEntry.js",
-  exposes: {
-    // expose entry points
-    // "./entry": "./src/pages/home",
-  },
-  remotes: {
-    // name of each remote
-    // app: "app@http://localhost:4000/remoteEntry.js"
-  },
-  shared: {
-    ...deps,
-    react: { singleton: true, eager: true, requiredVersion: deps.react },
-    "react-dom": {
-      singleton: true,
-      eager: true,
-      requiredVersion: deps["react-dom"],
-    },
-    "react-router-dom": {
-      singleton: true,
-      eager: true,
-      requiredVersion: deps["react-router-dom"],
-    },
-  },
-}
+/* eslint-disable no-undef */ /*eslint-disable @typescript-eslint/no-var-requires */
+require('dotenv').config() const deps = require("../../package.json").dependencies module.exports =
+{ name: "{{mfName}}", filename: "remoteEntry.js", exposes: { // expose entry points // "./entry":
+"./src/pages/home", }, remotes: { // name of each remote // app:
+"app@http://localhost:4000/remoteEntry.js" }, shared: { ...deps, react: { singleton: true, eager:
+true, requiredVersion: deps.react }, "react-dom": { singleton: true, eager: true, requiredVersion:
+deps["react-dom"], }, "react-router-dom": { singleton: true, eager: true, requiredVersion:
+deps["react-router-dom"], }, }, }

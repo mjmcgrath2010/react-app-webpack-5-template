@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
+require('dotenv').config()
 const path = require('path')
 
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     static: path.resolve(process.cwd(), 'dist/'),
-    port: 3000,
+    port: process.env.PORT || 3000,
     hot: true,
     open: true,
   },
