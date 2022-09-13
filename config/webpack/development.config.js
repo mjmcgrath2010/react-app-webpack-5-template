@@ -11,6 +11,7 @@ module.exports = {
     port: process.env.PORT || 3000,
     hot: true,
     open: true,
+    historyApiFallback: true,
   },
   plugins: [],
 }
